@@ -15,7 +15,7 @@ export default function App() {
       .catch(error => console.log({ error }));
   }, []);
 
-console.log("COUNTRIES:",countries);
+// console.log("COUNTRIES:",countries);
 
   return (
     <div className="App">
