@@ -5,7 +5,7 @@ export default function Country(props) {
     const [detail, setDeatil] = useState(false);
 
     return (
-          <div key={country.name} style={{ padding:"25px 0 25px 0" }}>
+          <div style={{ padding:"25px 0 25px 0" }}>
             <h3>{country.name}</h3>
             { !detail && <button onClick={() => setDeatil(true)}>Detail show</button> }
             { detail && <button onClick={() => setDeatil(false)}>Detail hide</button> }
