@@ -1,12 +1,14 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
+
 
 export default function Country(props) {
     const { country } = props
     const [detail, setDeatil] = useState(false);
 
+
     return (
-          <div style={{ padding:"25px 0 25px 0" }}>
-            <h3>{country.name}</h3>
+        <div style={{ padding:"25px 0 25px 0" }}>      
+            <h3>{country.name}</h3> 
             { !detail && <button onClick={() => setDeatil(true)}>Detail show</button> }
             { detail && <button onClick={() => setDeatil(false)}>Detail hide</button> }
             { detail && 
@@ -19,12 +21,12 @@ export default function Country(props) {
                 </div>
             }
             <p>
-              <img
-                src={props.country.flag}
-                alt={props.country.name}
-                style={{ width: "100px" }}
-              />
+                <img
+                    src={country.flag}
+                    alt={country.name}
+                    style={{ width: "100px" }}
+                />
             </p>
-          </div>
+        </div>
     );
 }
