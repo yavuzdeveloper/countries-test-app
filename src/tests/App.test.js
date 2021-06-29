@@ -2,6 +2,9 @@ import React from 'react';
 import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
 
+import axios from 'axios';
+import TestRenderer from "react-test-renderer";
+
 import App from "../App"
 import { describe } from 'yargs';
 
@@ -46,12 +49,6 @@ test("4-title renders correctly", () => {
 
 
 
-
-
-
-
-
-
 // async function getUsers() {
 //     try {
 //         const response = await axiosMock.get("/users");
@@ -70,3 +67,47 @@ test("4-title renders correctly", () => {
 //     const users = await getUsers();
 //     expect(users).toEqual(fakeUsers);
 // });
+
+
+//axios-mock;
+
+// afterEach(cleanup);
+
+// jest.mock('axios');// added??
+
+// test('mocking axios request', async () => {
+//   const data = {
+//     countries: [
+//       { name: 'country1' },
+//       { name: 'country2' },
+//       { name: 'country3' }
+//     ]
+//   };
+
+//   mockedAxios.get.mockResolvedValueOnce(data);
+//   const { getByText } = render(<App />);
+
+//   await waitFor(() => {
+//     expect(getByText('country1')).toBeInTheDocument();
+//   });
+// });
+
+//***************
+jest.mock('axios');
+
+test("fetch", () => {
+  const response = {
+    countries: [
+      { name: 'country1' },
+      { name: 'country2' },
+      { name: 'country3' }
+    ]
+  }
+  axios.get.mockResolvedValue(response);
+
+    const component = TestRenderer.create(
+      <App />
+    )
+    let tree = component.toJSON();
+    expect(tree).toMatchSnapshot();
+});
