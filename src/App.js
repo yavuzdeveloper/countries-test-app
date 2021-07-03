@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./styles.css";
 import axios from "axios";
-//import Countries from "./Countries"
 import Country from "./Country"
 
 
@@ -54,30 +53,13 @@ export default function App() {
         <Country  country={country}/> 
       )}
     </div>
-    ) : ( <p>
-          <img 
+    ) : ( <p> loading...
+          {/* <img 
             src= "https://media.giphy.com/media/y1ZBcOGOOtlpC/source.gif" 
             alt="imgLoading"       
-          />
+          /> */}
         </p>)
       }
     </div>
   );
 }
-
-
-//   <span data-testid="resolved" >{"countries"}</span>
-
-//     { loaded ? ( <div> 
-// { countries.map(country =>
-//         <Country  country={country}/> 
-// )}
-//     </div>
-     
-//     ) : ( <p data-testid="loading"> Loading...
-//           {/* <img 
-//             src= "https://media.giphy.com/media/y1ZBcOGOOtlpC/source.gif" 
-//             alt="imgLoading"       
-//           /> */}
-//         </p>)
-//     }
